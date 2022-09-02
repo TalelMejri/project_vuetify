@@ -1,6 +1,15 @@
 <template>
   <v-app>
-    <navbar></navbar>  
+
+
+    <navbar></navbar>
+    <span  class="d-flex justify-center font-weight-bold display-4 ">hello</span>
+    <v-icon>email</v-icon>
+    <div>
+      
+      <v-btn  fab class="hidden-md-only">hello</v-btn>
+    </div>  
+    <router-view></router-view> 
   </v-app>
 </template>
 
