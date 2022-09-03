@@ -1,7 +1,8 @@
 <template>
   <v-app>
-     <Navbar></Navbar>
+    
      <router-view></router-view> 
+     <Navbar></Navbar>
   </v-app>
     <!--<v-avatar color="success">
       <v-icon  color="white">
@@ -98,7 +99,6 @@ import "vue-step-wizard/dist/vue-step-wizard.css";
 import { required } from 'vuelidate/lib/validators';
 import { email } from 'vuelidate/lib/validators';
 import { numeric } from 'vuelidate/lib/validators';
-import navbar from "@/components/Navbar.vue";
 import Vue from 'vue';
 import VueConfetti from 'vue-confetti';
 import Navbar from "@/components/Navbar.vue";
@@ -107,7 +107,6 @@ Vue.use(VueConfetti);
 export default {
   name: 'App',
   components:{
-    navbar,
     FormWizard,
     TabContent,
     Navbar
@@ -115,12 +114,6 @@ export default {
     mixins: [ValidationHelper],
   data(){
     return{
-      drawer:false,
-            Links:[
-                {text:'dashbord',icon:'view-dashboard',route:'/'},
-                {text:'about',icon:'account',route:'/about'},
-                {text:'home',icon:'email',route:'/home'}
-            ],
       alert:true,
       e1:1,
       formData:{

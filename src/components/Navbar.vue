@@ -26,7 +26,7 @@
                </div>
            </v-layout>
             <v-list> 
-                <v-list-item v-for="link in Links" :key="link.text" route :to="link.route">
+                <v-list-item v-for="link in Links" :key="link.text" router :to="link.route">
                     <v-list-item-action>
                        <v-icon>mdi-{{link.icon}}</v-icon>
                     </v-list-item-action>
@@ -47,11 +47,11 @@ export default {
     },
     data(){
         return{
-            drawer:false,
+            drawer:true,
             Links:[
-                {text:'dashbord',icon:'view-dashboard',route:'/'},
-                {text:'about',icon:'account',route:'/about'},
-                {text:'home',icon:'email',route:'/home'}
+                {text:'dashboard',icon:'view-dashboard',route: '/' },
+                {text:'projet',icon:'account',route: '/projet' },
+                {text:'team',icon:'email',route: '/team' } 
             ]
         }
     }
