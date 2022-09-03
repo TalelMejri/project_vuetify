@@ -1,8 +1,10 @@
 <template>
   <v-app>
-    
-     <router-view></router-view> 
      <Navbar></Navbar>
+     <v-content>
+       <router-view></router-view> 
+    </v-content>
+     
   </v-app>
     <!--<v-avatar color="success">
       <v-icon  color="white">

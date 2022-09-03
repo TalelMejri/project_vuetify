@@ -1,5 +1,5 @@
 <template>
-    <div class="home">
+    <div style="position:relative;top:15%;" class="home">
         projet
     </div>
 </template>

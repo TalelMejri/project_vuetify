@@ -1,6 +1,6 @@
 <template>
     <nav>
-        <v-app-bar app class="warning">
+        <v-app-bar app flat class="warning">
             <v-toolbar-side-icon>
               <v-btn @click="drawer=!drawer">
                   <v-icon >mdi-view-list</v-icon>
