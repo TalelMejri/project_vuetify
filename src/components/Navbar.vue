@@ -1,6 +1,6 @@
 <template>
     <nav>
-        <v-app-bar app>
+        <v-app-bar app class="warning">
             <v-toolbar-side-icon>
               <v-btn @click="drawer=!drawer">
                   <v-icon >mdi-view-list</v-icon>
@@ -16,14 +16,22 @@
             </v-btn>
          </v-app-bar>
      
-        <v-navigation-drawer app class="primary"  v-model="drawer">
+        <v-navigation-drawer app class="warning"  v-model="drawer">
+           <v-layout class="mt-5 mb-4" column align-center>
+                <v-avatar elevation="4" size="100">
+                    <img src="../assets/talel.jpg" alt="">
+                </v-avatar>
+               <div>
+                  <span class="dark--text subheading mt-1 text-center">Talel Mejri</span>
+               </div>
+           </v-layout>
             <v-list> 
                 <v-list-item v-for="link in Links" :key="link.text" route :to="link.route">
                     <v-list-item-action>
                        <v-icon>mdi-{{link.icon}}</v-icon>
                     </v-list-item-action>
                     <v-list-item-content>
-                      <v-list-item-title>{{link.text}}</v-list-item-title>
+                      <v-list-item-title class="white--text font-weight-bold">{{link.text}}</v-list-item-title>
                     </v-list-item-content>
                   </v-list-item>  
             </v-list>   
