@@ -1,20 +1,17 @@
 <template>
   <v-app>
-     <Navbar></Navbar>
+    <!-- <Navbar></Navbar>-->
      <v-content>
        <router-view></router-view> 
     </v-content>
-     
-  </v-app>
-    <!--<v-avatar color="success">
+    <v-avatar color="success">
       <v-icon  color="white">
         mdi-github
       </v-icon>
     </v-avatar>
     <v-icon>mdi-email</v-icon>
-    <navbar></navbar>
-    <span  class="d-flex justify-center font-weight-bold display-4 ">hello</span>-->
-   <!--<form-wizard >
+    <span  class="d-flex justify-center font-weight-bold display-4 ">hello</span>
+   <form-wizard >
       <tab-content title="premiere" :selected="true" >
           <div class="form-group">
               <label for="fullName">Full Name</label>
@@ -34,21 +31,13 @@
             </div>
             </div>
       </tab-content>
-      <tab-content title="Finishing Up">
-          <div class="form-group">
-              <label for="referral">From Where did you hear about us</label>
-              <select class="form-control" v-model="referral">
-                  <option>Newspaper</option>
-                  <option>Online Ad</option>
-                  <option>Friend</option>
-                  <option>Other</option> 
-              </select>
-          </div>
-      </tab-content>
-  </form-wizard>-->
+   
+  </form-wizard>
+  </v-app>
+   
   
  
- <!-- <div class="d-flex justify-center mb-5">
+  <!--<div class="d-flex justify-center mb-5">
     
   </div> 
 
@@ -127,8 +116,8 @@ export default {
         terms: false,
     },
     validationRules:[
-        {fullName: {required}, email: {required, email} },  
-        {companyName: {required}, numberOfEmployees: {required, numeric} },   
+        {fullName: {required}},  
+        {email: {required, email} ,companyName: {required}, numberOfEmployees: {required, numeric} },   
         {referral: {required}, terms: {required, numeric} }   
     ]
     }
