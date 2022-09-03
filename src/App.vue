@@ -1,54 +1,83 @@
 <template>
   <v-app>
-
+    <v-avatar color="success">
+      <v-icon  color="white">
+        mdi-github
+      </v-icon>
+    </v-avatar>
     <v-icon>mdi-email</v-icon>
     <navbar></navbar>
     <span  class="d-flex justify-center font-weight-bold display-4 ">hello</span>
-     <form-wizard>
-       <tab-content titel="premier">
-          <div >
-            <label for="">dd</label>
-            <input type="text">
+    <form-wizard>
+      <tab-content title="premiere" >
+          <div class="form-group">
+              <label for="fullName">Full Name</label>
+              <input type="text" class="form-control" :class="hasError('fullname') ? 'is-invalid' :''" placeholder="Enter your name" v-model="fullName">
+              <div v-if="hasError('fullname')" class="invalid-feedback">
+                  <div class="error" v-if="!$v.formData.fullName.required">Please provide a valid name.</div>
+              </div>
+            </div>
+      </tab-content>
+      <tab-content title="About your Company"> 
+          <div class="form-group">
+              <label for="companyName">Your Company Name</label>
+              <input type="text" class="form-control" :class="hasError('email') ?'is-invalid' :''" placeholder="Enter your Company / Organization name" v-model="companyName">
+            <div v-if="haserror('email')" class="invalid-feddback">
+              <div class="error" v-if="!$v.formData.email.required">email filed is required</div>
+              <div class="error" v-if="!$v.formData.email.email">should be in email format</div>
+            </div>
+            </div>
+      </tab-content>
+      <tab-content title="Finishing Up">
+          <div class="form-group">
+              <label for="referral">From Where did you hear about us</label>
+              <select class="form-control" v-model="referral">
+                  <option>Newspaper</option>
+                  <option>Online Ad</option>
+                  <option>Friend</option>
+                  <option>Other</option>
+              </select>
           </div>
-          <div >
-            <label for="">dd</label>
-            <input type="text">
-          </div>
-          <div >
-            <label for="">dd</label>
-            <input type="text">
-          </div>
-       </tab-content>
-       <tab-content titel="premier">
-        <div >
-          <label for="">dd</label>
-          <input type="text">
-        </div>
-        <div >
-          <label for="">dd</label>
-          <input type="text">
-        </div>
-        <div >
-          <label for="">dd</label>
-          <input type="text">
-        </div>
-     </tab-content>
-     <tab-content titel="premier">
-      <div >
-        <label for="">dd</label>
-        <input type="text">
-      </div>
-      <div >
-        <label for="">dd</label>
-        <input type="text">
-      </div>
-      <div >
-        <label for="">dd</label>
-        <input type="text">
-      </div>
-   </tab-content>
-     </form-wizard>
-    <div>
+      </tab-content>
+  </form-wizard>
+  <div class="d-flex justify-center mb-5">
+    
+  </div> 
+
+   <div class="mx-5 d-flex justify-center">
+    <v-alert
+      v-model="alert"
+      dark
+      border="left"
+      color="cyan"
+      icon="mdi-twitter"
+      elavation="4"
+      colored-border
+      dismissible
+      prominent
+       >
+        hello
+    </v-alert>
+    
+   </div>
+   <v-alert
+   type="success"
+    >
+     hello
+ </v-alert>
+   <div class="text-center">
+
+   <v-btn v-if="!alert"
+   @click="alert=true"
+   dark>
+   Restart
+    
+  </v-btn>
+
+</div>
+
+
+    <div class="d-flex justify-center">
       <v-btn @click="start">Start</v-btn>
       <v-btn  @click="stop">Stop</v-btn >
       <v-btn  @click="love">Show some love</v-btn >
@@ -60,22 +89,42 @@
 </template>
 
 <script>
-import { FormWizard, TabContent, ValidationHelper } from "vue-step-wizard";
+
+
+import { FormWizard, TabContent,ValidationHelper } from "vue-step-wizard";
 import "vue-step-wizard/dist/vue-step-wizard.css";
 import navbar from "@/components/Navbar.vue";
-import Vue from 'vue'
-import VueConfetti from 'vue-confetti'
+import { required } from 'vuelidate/lib/validators';
+import { email } from 'vuelidate/lib/validators';
+import { numeric } from 'vuelidate/lib/validators';
+import Vue from 'vue';
+import VueConfetti from 'vue-confetti';
+Vue.use(VueConfetti);
 
-Vue.use(VueConfetti)
 export default {
   name: 'App',
   components:{
-    navbar, FormWizard, TabContent
+    navbar, FormWizard, TabContent,ValidationHelper
   },
 
-  data: () => ({
-    //
-  }),
+  data(){
+    return{
+      alert:true,
+      formData:{
+        fullName: '',
+        email: null,
+        companyName: null,
+        numberOfEmployees: null,
+        referral: null,
+        terms: false,
+    },
+    validationRules:[
+        {fullName: {required}, email: {required, email} },  
+        {companyName: {required}, numberOfEmployees: {required, numeric} },   
+        {referral: {required}, terms: {required, numeric} }   
+    ]
+    }
+  },
   methods: {
       start() {
         this.$confetti.start();
@@ -103,5 +152,6 @@ export default {
         });
       }
     }
+
 };
 </script>
