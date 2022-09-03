@@ -1,15 +1,19 @@
 <template>
   <v-app>
-    <v-avatar color="success">
+   
+     <Navbar></Navbar>
+    <router-view></router-view> 
+  </v-app>
+    <!--<v-avatar color="success">
       <v-icon  color="white">
         mdi-github
       </v-icon>
     </v-avatar>
     <v-icon>mdi-email</v-icon>
     <navbar></navbar>
-    <span  class="d-flex justify-center font-weight-bold display-4 ">hello</span>
-    <form-wizard >
-      <tab-content title="premiere" >
+    <span  class="d-flex justify-center font-weight-bold display-4 ">hello</span>-->
+   <!--<form-wizard >
+      <tab-content title="premiere" :selected="true" >
           <div class="form-group">
               <label for="fullName">Full Name</label>
               <input type="text" class="form-control" :class="hasError('fullName') ? 'is-invalid' :''" placeholder="Enter your name" v-model="formData.fullName">
@@ -35,12 +39,14 @@
                   <option>Newspaper</option>
                   <option>Online Ad</option>
                   <option>Friend</option>
-                  <option>Other</option>
+                  <option>Other</option> 
               </select>
           </div>
       </tab-content>
-  </form-wizard>
-  <div class="d-flex justify-center mb-5">
+  </form-wizard>-->
+  
+ 
+ <!-- <div class="d-flex justify-center mb-5">
     
   </div> 
 
@@ -83,32 +89,41 @@
       <v-btn  @click="love">Show some love</v-btn >
       
       <v-btn  fab class="hidden-md-only">hello</v-btn>
-    </div>  
-    <router-view></router-view> 
-  </v-app>
+    </div>  -->
+   
 </template>
 
 <script>
-import { FormWizard, TabContent,ValidationHelper } from "vue-step-wizard";
+import { FormWizard, TabContent,ValidationHelper} from "vue-step-wizard";
 import "vue-step-wizard/dist/vue-step-wizard.css";
-import navbar from "@/components/Navbar.vue";
-
 import { required } from 'vuelidate/lib/validators';
 import { email } from 'vuelidate/lib/validators';
 import { numeric } from 'vuelidate/lib/validators';
+import navbar from "@/components/Navbar.vue";
 import Vue from 'vue';
 import VueConfetti from 'vue-confetti';
+import Navbar from "@/components/Navbar.vue";
 Vue.use(VueConfetti);
 
 export default {
   name: 'App',
   components:{
-    navbar, FormWizard, TabContent,ValidationHelper
-  },
-  mixins: [ValidationHelper],
+    navbar,
+    FormWizard,
+    TabContent,
+    Navbar
+},
+    mixins: [ValidationHelper],
   data(){
     return{
+      drawer:false,
+            Links:[
+                {text:'dashbord',icon:'view-dashboard',route:'/'},
+                {text:'about',icon:'account',route:'/about'},
+                {text:'home',icon:'email',route:'/home'}
+            ],
       alert:true,
+      e1:1,
       formData:{
         fullName: '',
         email: null,
