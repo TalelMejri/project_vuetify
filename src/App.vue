@@ -8,12 +8,12 @@
     <v-icon>mdi-email</v-icon>
     <navbar></navbar>
     <span  class="d-flex justify-center font-weight-bold display-4 ">hello</span>
-    <form-wizard>
+    <form-wizard >
       <tab-content title="premiere" >
           <div class="form-group">
               <label for="fullName">Full Name</label>
-              <input type="text" class="form-control" :class="hasError('fullname') ? 'is-invalid' :''" placeholder="Enter your name" v-model="fullName">
-              <div v-if="hasError('fullname')" class="invalid-feedback">
+              <input type="text" class="form-control" :class="hasError('fullName') ? 'is-invalid' :''" placeholder="Enter your name" v-model="formData.fullName">
+              <div v-if="hasError('fullName')" class="invalid-feedback">
                   <div class="error" v-if="!$v.formData.fullName.required">Please provide a valid name.</div>
               </div>
             </div>
@@ -21,8 +21,8 @@
       <tab-content title="About your Company"> 
           <div class="form-group">
               <label for="companyName">Your Company Name</label>
-              <input type="text" class="form-control" :class="hasError('email') ?'is-invalid' :''" placeholder="Enter your Company / Organization name" v-model="companyName">
-            <div v-if="haserror('email')" class="invalid-feddback">
+              <input type="text" class="form-control" :class="hasError('email') ?'is-invalid' :''" placeholder="Enter your Company / Organization name" v-model="formData.email">
+            <div v-if="hasError('email')" class="invalid-feddback">
               <div class="error" v-if="!$v.formData.email.required">email filed is required</div>
               <div class="error" v-if="!$v.formData.email.email">should be in email format</div>
             </div>
@@ -89,11 +89,10 @@
 </template>
 
 <script>
-
-
 import { FormWizard, TabContent,ValidationHelper } from "vue-step-wizard";
 import "vue-step-wizard/dist/vue-step-wizard.css";
 import navbar from "@/components/Navbar.vue";
+
 import { required } from 'vuelidate/lib/validators';
 import { email } from 'vuelidate/lib/validators';
 import { numeric } from 'vuelidate/lib/validators';
@@ -106,7 +105,7 @@ export default {
   components:{
     navbar, FormWizard, TabContent,ValidationHelper
   },
-
+  mixins: [ValidationHelper],
   data(){
     return{
       alert:true,
@@ -126,6 +125,9 @@ export default {
     }
   },
   methods: {
+    submit(){
+      
+    },
       start() {
         this.$confetti.start();
       },
@@ -155,3 +157,13 @@ export default {
 
 };
 </script>
+
+<style scoped>
+  
+  .error {
+    border: 1px solid red;
+    border-radius: 5px;
+    padding: 5px;
+    color: white !important;
+  }
+</style>
