@@ -1,28 +1,30 @@
 <template>
     <div class="home">
-        <v-container class="py-5">
-            <v-layout row wrap justify-space-between>
-                <v-flex xs12 md12>
-                    <v-btn outline block class="primary">
-                        <v-icon>mdi-facebook</v-icon>
-                    </v-btn>
-                </v-flex>
-                <v-flex xs6 md6>
-                    <v-btn outline block class="primary">
-                        <v-icon>mdi-facebook</v-icon>
-                    </v-btn>
-                </v-flex>
-                <v-flex xs4 md2>
-                    <v-btn outline block class="primary">
-                        <v-icon>mdi-twitter</v-icon>
-                    </v-btn>
-                </v-flex>
-                <v-flex xs4 md2>
-                    <v-btn outline block class="danger">
-                        <v-icon>mdi-youtube</v-icon>
-                    </v-btn>
-                </v-flex>
-            </v-layout>
+        <v-container class="my-5">
+            <v-card>
+                <v-layout row>
+                   <v-flex  xs12  md6>
+                        <div class="caption grey--text">projet vuetify</div>
+                        <div >Greate new projet </div>
+                   </v-flex>
+                   <v-flex xs6 sm4 md2>
+                        <div class="caption grey--text">Person</div>
+                        <div>Talel Mejri</div>
+                   </v-flex>
+                   <v-flex xs6 sm4 md2>
+                        <div class="caption grey--text">
+                            Due By
+                        </div>
+                        <div>10/09/2022</div>
+                   </v-flex>
+                   <v-flex xs6 sm4 md2>
+                     <div class="caption grey--text">
+                            status
+                     </div>
+                     <div>Ongoing</div>
+                   </v-flex>
+               </v-layout>
+           </v-card>
         </v-container>
     </div>
 </template>
