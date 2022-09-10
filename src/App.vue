@@ -1,10 +1,11 @@
 <template>
   <v-app>
-    <!-- <Navbar></Navbar>-->
+     <Navbar></Navbar>
      <v-content>
        <router-view></router-view> 
     </v-content>
-    <v-avatar color="success">
+  </v-app>
+   <!--<v-avatar color="success">
       <v-icon  color="white">
         mdi-github
       </v-icon>
@@ -33,11 +34,11 @@
       </tab-content>
    
   </form-wizard>
-  </v-app>
+
    
   
  
-  <!--<div class="d-flex justify-center mb-5">
+  <div class="d-flex justify-center mb-5">
     
   </div> 
 
