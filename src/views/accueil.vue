@@ -1,6 +1,6 @@
 <template>
-    <div class="home my-5 py-5">
-        <v-container class="my-5 py-5 m-3">
+    <div class="home my-5 py-5 d-flex justify-content-center">
+        <v-container class="m-3">
             <v-card flat  v-for="projet in project" :key="projet.titel"  >
                 <v-layout row  :class="`pa-3 projet ${projet.status}`">
                    <v-flex  xs12  md6>
@@ -19,7 +19,7 @@
                    </v-flex>
                    <v-flex xs6 sm4 md2>
                      <div class="right">
-                            <v-chip :class="`${projet.status} white--text caption my-2`">{{projet.status}}</v-chip>
+                         <v-chip :class="`${projet.status} white--text caption my-2`">{{projet.status}}</v-chip>
                     </div>
                    </v-flex>
                </v-layout>
