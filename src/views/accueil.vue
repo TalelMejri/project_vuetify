@@ -1,9 +1,9 @@
 <template>
     <div class="home">
         <v-container class="my-5">
-            <v-card>
+            <v-card flat class="pa-3">
                 <v-layout row>
-                   <v-flex  xs12  md6>
+                   <v-flex   xs12  md6>
                         <div class="caption grey--text">projet vuetify</div>
                         <div >Greate new projet </div>
                    </v-flex>
