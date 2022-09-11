@@ -3,14 +3,32 @@
         <v-container class="m-3">
              <v-layout row class="mb-3">
                 <v-flex>
-                <v-btn small  color=" me-2" @click="sortby('titel')"> 
-                    <v-icon left small>mdi-folder</v-icon>
-                    <span class="cpation text-loxercase">By project Name</span>
-                </v-btn>
-                <v-btn small  color=""  @click="sortby('person')">
-                    <v-icon left small>mdi-account</v-icon>
-                    <span class="cpation text-loxercase">By project Name</span>
-                </v-btn>
+                  <v-tooltip top>
+                    <template v-slot:activator="{ on, attrs }">
+                     <v-btn small 
+                     v-bind="attrs"
+                     v-on="on"
+                          color=" me-2" @click="sortby('titel')" > 
+                       <v-icon left small>mdi-folder</v-icon>
+                       <span class="cpation text-loxercase">By project Name</span>
+                    </v-btn>
+                   </template>
+                     <span>Sort by project name</span>
+                </v-tooltip>
+
+                <v-tooltip top>
+                    <template v-slot:activator="{ on, attrs }">
+                     <v-btn small 
+                     v-bind="attrs"
+                     v-on="on"
+                          color=" me-2" @click="sortby('person')" > 
+                       <v-icon left small>mdi-account</v-icon>
+                       <span class="cpation text-loxercase">By person Name</span>
+                    </v-btn>
+                   </template>
+                     <span>Sort by person name</span>
+                </v-tooltip>
+                    
             </v-flex>
              </v-layout>
             <v-card flat  v-for="projet in project" :key="projet.titel"  >
