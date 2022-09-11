@@ -1,6 +1,18 @@
 <template>
     <div class="home my-5 py-5 d-flex justify-content-center">
         <v-container class="m-3">
+             <v-layout row class="mb-3">
+                <v-flex>
+                <v-btn small  color=" me-2" @click="sortby('titel')"> 
+                    <v-icon left small>mdi-folder</v-icon>
+                    <span class="cpation text-loxercase">By project Name</span>
+                </v-btn>
+                <v-btn small  color=""  @click="sortby('person')">
+                    <v-icon left small>mdi-account</v-icon>
+                    <span class="cpation text-loxercase">By project Name</span>
+                </v-btn>
+            </v-flex>
+             </v-layout>
             <v-card flat  v-for="projet in project" :key="projet.titel"  >
                 <v-layout row  :class="`pa-3 projet ${projet.status}`">
                    <v-flex  xs12  md6>
@@ -39,6 +51,11 @@
                     {titel:'Laravel',person:'hama',due:'20/9/2022',status:'ongoing'},
                     {titel:'Vue Js',person:'teko',due:'30/9/2022',status:'complete'}
                 ]
+            }
+        },
+        methods:{
+            sortby(prop){
+                this.project.sort((a,b)=>a[prop]<b[prop] ? -1 : 1);
             }
         }
     }
