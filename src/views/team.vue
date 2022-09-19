@@ -5,7 +5,10 @@
                <v-flex xs12 sm6 md4 lg3  v-for="person in team" :key="person.name">
                  <v-card small elevation="4" class="ma-3 text-center py2">
                     <v-responsive class="py-2">
-                        <img :src="person.image" :alt="person.name">
+                         <v-avatar size="100" class="grey lighten-2">
+                            <img :src="person.image" :alt="person.name">
+                         </v-avatar>
+                     
                     </v-responsive>
                     <v-card-text>
                         <div class="fw-bolder">{{person.name}}</div>
@@ -32,14 +35,19 @@
 
 
 <script>
+import pic1 from "@/assets/pic1.png";
+import pic2 from "@/assets/pic2.png";
+import pic3 from "@/assets/pic3.png";
+import pic4 from "@/assets/pic4.png";
 export default{
+    
     data(){
         return{
             team:[
-                {name:'Talel',role:'full stack',image:"../../public/logo.png"},
-                {name:'taha',role:'front end',image:"../../public/logo.png"},
-                {name:'chtag',role:'back end',image:"../../public/logo.png"},
-                {name:'cho3ba',role:'designer',image:"../../public/logo.png"}
+                {name:'Talel',role:'full stack',image:pic1},
+                {name:'taha',role:'front end',image:pic2},
+                {name:'chtag',role:'back end',image:pic3},
+                {name:'cho3ba',role:'designer',image:pic4}
             ]
         }
     }

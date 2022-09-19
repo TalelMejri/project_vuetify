@@ -21,9 +21,9 @@
                 <v-avatar elevation="4" size="100">
                     <img src="../assets/talel.jpg" alt="">
                 </v-avatar>
-               <div>
-                  <span class="dark--text subheading mt-1 text-center">Talel Mejri</span>
-               </div>
+               <p>
+                  <span class="dark--text subheading mt-3 text-center">Talel Mejri</span>
+               </p>
            </v-layout>
             <v-list> 
                 <v-list-item v-for="link in Links" :key="link.text" router :to="link.route">
